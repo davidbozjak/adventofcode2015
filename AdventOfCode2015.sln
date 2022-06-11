@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day3_DeliveryGrid", "Day3_D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day4_MD5", "Day4_MD5\Day4_MD5.csproj", "{DA4C922E-A385-4558-9CA3-90A3424ADF79}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day5_NaughyOrNice", "Day5_NaughyOrNice\Day5_NaughyOrNice.csproj", "{D7B0D789-1427-4290-A12A-0D64C80ECD11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{DA4C922E-A385-4558-9CA3-90A3424ADF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA4C922E-A385-4558-9CA3-90A3424ADF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA4C922E-A385-4558-9CA3-90A3424ADF79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B0D789-1427-4290-A12A-0D64C80ECD11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B0D789-1427-4290-A12A-0D64C80ECD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B0D789-1427-4290-A12A-0D64C80ECD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B0D789-1427-4290-A12A-0D64C80ECD11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
