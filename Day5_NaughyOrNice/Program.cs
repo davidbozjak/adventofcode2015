@@ -40,7 +40,7 @@ static bool IsNiceEx(string str)
 
     for (var i = 2; !foundTwoNonOverlappingTwoLetters && i < str.Length; i++)
     {
-        foundTwoNonOverlappingTwoLetters = str[i..].Contains(str[(i - 2):2]);
+        foundTwoNonOverlappingTwoLetters = str[i..].Contains(str[(i - 2)..i]);
     }
 
     return foundTwoNonOverlappingTwoLetters;
