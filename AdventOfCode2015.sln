@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day_Template", "Day_Templat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day1_Floors", "Day1_Floors\Day1_Floors.csproj", "{15A51EC1-D366-4B63-9763-72F5096E6D9D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day2_Wrapping", "Day2_Wrapping\Day2_Wrapping.csproj", "{72A67D0B-BE43-40A2-98BF-A1DAFE04190F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{15A51EC1-D366-4B63-9763-72F5096E6D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A51EC1-D366-4B63-9763-72F5096E6D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15A51EC1-D366-4B63-9763-72F5096E6D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A67D0B-BE43-40A2-98BF-A1DAFE04190F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A67D0B-BE43-40A2-98BF-A1DAFE04190F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A67D0B-BE43-40A2-98BF-A1DAFE04190F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A67D0B-BE43-40A2-98BF-A1DAFE04190F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
