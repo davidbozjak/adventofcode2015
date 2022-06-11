@@ -2,7 +2,9 @@
 
 string secretKey = "yzbqklnj";
 
-var stringsToFind = new List<string>() { new string(Enumerable.Repeat('0', 5).ToArray()), new string(Enumerable.Repeat('0', 6).ToArray()) };
+var stringsToFind = new[] { 5, 6 }.Select(w => new string(Enumerable.Repeat('0', w).ToArray())).ToList();
+
+var toRemove = new List<string>();
 
 using (var md5 = System.Security.Cryptography.MD5.Create())
 {
@@ -20,9 +22,14 @@ using (var md5 = System.Security.Cryptography.MD5.Create())
             if (str == stringToFind)
             {
                 Console.WriteLine($"Found {str} on {i}");
-                stringsToFind.Remove(str);
-                break;
+                toRemove.Add(str);
             }
+        }
+
+        if (toRemove.Any())
+        {
+            stringsToFind.RemoveAll(toRemove.Contains);
+            toRemove = new();
         }
     }
 }
