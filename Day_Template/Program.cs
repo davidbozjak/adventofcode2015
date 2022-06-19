@@ -6,7 +6,7 @@ Regex hexColorRegex = new(@"#[0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z]");
 var singleDigitIntParser = new SingleLineStringInputParser<int>(int.TryParse, str => str.ToCharArray().Select(w => w.ToString()).ToArray());
 var singleDigitIntInput = new InputProvider<int>("Input.txt", singleDigitIntParser.GetValue).ToList();
 
-var wholeStringInput = new InputProvider<string>("Input.txt", GetString).ToList();
+var wholeStringInput = new InputProvider<string?>("Input.txt", GetString).Where(w => w != null).Cast<string>().ToList();
 
 var commaSeperatedSingleLineParser = new SingleLineStringInputParser<int>(int.TryParse, str => str.Split(",", StringSplitOptions.RemoveEmptyEntries));
 var commaSeperatedIntsInput = new InputProvider<int>("Input.txt", commaSeperatedSingleLineParser.GetValue).ToList();
