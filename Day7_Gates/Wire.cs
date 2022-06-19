@@ -1,24 +1,26 @@
 ﻿class Wire
 {
     public string Name { get; }
-    public ushort Signal => initialSignal ?? Gate?.Signal ?? wire?.Signal ?? throw new Exception();
+    public ushort Signal => overrideValue ?? initialSignal ?? gate?.Signal ?? wire?.Signal ?? throw new Exception();
 
+    private ushort? overrideValue;
     private readonly ushort? initialSignal;
-    private readonly IGate? Gate;
+    private readonly IGate? gate;
     private readonly Wire? wire;
+    
 
     public Wire(string name, ushort signal)
     {
         this.Name = name;
         this.initialSignal = signal;
-        this.Gate = null;
+        this.gate = null;
         this.wire = null;
     }
        
     public Wire(string name, IGate gate)
     {
         this.Name = name;
-        this.Gate = gate;
+        this.gate = gate;
         this.initialSignal = null;
         this.wire = null;
     }
@@ -27,7 +29,19 @@
     {
         this.Name = name;
         this.wire = wire;
-        this.Gate = null;
+        this.gate = null;
         this.initialSignal = null;
+    }
+
+    public void Reset()
+    {
+        this.wire?.Reset();
+        this.gate?.Reset();
+        this.overrideValue = null;
+    }
+
+    public void SetOverrideValue(ushort overrideValue)
+    {
+        this.overrideValue = overrideValue;
     }
 }

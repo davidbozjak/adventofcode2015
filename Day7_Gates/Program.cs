@@ -87,12 +87,22 @@ for (int i = 0; instructionStrings.Count > 0; i = (i + 1) % Math.Max(1, instruct
     instructionStrings.Remove(instruction);
 }
 
-//foreach (var wire in wires.Values.OrderBy(w => w.Name))
-//{
-//    Console.WriteLine($"{wire.Name}: {wire.Signal}");
-//}
+var wireA = wires["a"];
+var wireAinitialSignal = wireA.Signal;
 
-Console.WriteLine($"Part 1: {wires["a"].Signal}");
+Console.WriteLine($"Part 1: {wireAinitialSignal}");
+
+var wireB = wires["b"];
+wireB.SetOverrideValue(wireAinitialSignal);
+
+foreach (var wire in wires.Values)
+{
+    if (wire == wireB) continue;
+
+    wire.Reset();
+}
+
+Console.WriteLine($"Part 2: {wireA.Signal}");
 
 static bool GetString(string? input, out string? value)
 {

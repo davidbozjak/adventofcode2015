@@ -1,6 +1,8 @@
 ﻿interface IGate
 {
-    public ushort Signal { get; }
+    ushort Signal { get; }
+
+    void Reset();
 }
 
 abstract class BaseGate : IGate
@@ -12,6 +14,11 @@ abstract class BaseGate : IGate
     public BaseGate()
     {
         this.cachedSignal = new Cached<ushort>(this.CalculateSignal);
+    }
+
+    public void Reset()
+    {
+        this.cachedSignal.Reset();
     }
 
     protected abstract ushort CalculateSignal();
