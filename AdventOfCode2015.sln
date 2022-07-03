@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day7_Gates", "Day7_Gates\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day8_StringEncoding", "Day8_StringEncoding\Day8_StringEncoding.csproj", "{9CD68AED-73D1-4CFF-9CC2-EAE96883A665}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day9_Distances", "Day9_Distances\Day9_Distances.csproj", "{1263A806-9D25-4667-A43A-9272018D54C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{9CD68AED-73D1-4CFF-9CC2-EAE96883A665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CD68AED-73D1-4CFF-9CC2-EAE96883A665}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CD68AED-73D1-4CFF-9CC2-EAE96883A665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1263A806-9D25-4667-A43A-9272018D54C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1263A806-9D25-4667-A43A-9272018D54C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1263A806-9D25-4667-A43A-9272018D54C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1263A806-9D25-4667-A43A-9272018D54C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
