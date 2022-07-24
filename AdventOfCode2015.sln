@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day13_OptiSitting", "Day13_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day14_RainderRacing", "Day14_RainderRacing\Day14_RainderRacing.csproj", "{BF31992C-6658-45FC-BA91-38FE52928C1D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day15_Baking", "Day15_Baking\Day15_Baking.csproj", "{23211C01-78B2-47AC-8C8C-38E1681FCEAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{BF31992C-6658-45FC-BA91-38FE52928C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF31992C-6658-45FC-BA91-38FE52928C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF31992C-6658-45FC-BA91-38FE52928C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23211C01-78B2-47AC-8C8C-38E1681FCEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23211C01-78B2-47AC-8C8C-38E1681FCEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23211C01-78B2-47AC-8C8C-38E1681FCEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23211C01-78B2-47AC-8C8C-38E1681FCEAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
