@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day11_PasswordGen", "Day11_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day12_JSAbacus", "Day12_JSAbacus\Day12_JSAbacus.csproj", "{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day13_OptiSitting", "Day13_OptiSitting\Day13_OptiSitting.csproj", "{A2135AF2-1C31-4C31-925B-3A2DAFEB9770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2135AF2-1C31-4C31-925B-3A2DAFEB9770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2135AF2-1C31-4C31-925B-3A2DAFEB9770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2135AF2-1C31-4C31-925B-3A2DAFEB9770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2135AF2-1C31-4C31-925B-3A2DAFEB9770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
