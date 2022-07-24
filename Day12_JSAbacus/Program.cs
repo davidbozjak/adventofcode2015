@@ -45,16 +45,19 @@ static IEnumerable<string> GetNonRedStrings(IEnumerable<JToken> input)
 
             var propertyValues = new List<string>();
             var children = new List<JObject>();
+            var arrays = new List<JArray>();
 
             foreach (var property in jobjectItem.Properties())
             {
                 if (property.Value.Type == JTokenType.Object)
                 {
                     children.Add(property.Value as JObject);
-                    continue;
                 }
-
-                if (property.Value.ToString() == "red")
+                else if (property.Value.Type == JTokenType.Array)
+                {
+                    arrays.Add(property.Value as JArray);
+                }
+                else if (property.Value.ToString() == "red")
                 {
                     hasRed = true;
                     break;
@@ -68,6 +71,7 @@ static IEnumerable<string> GetNonRedStrings(IEnumerable<JToken> input)
             if (!hasRed)
             {
                 strings.AddRange(GetNonRedStrings(children));
+                strings.AddRange(GetNonRedStrings(arrays));
                 strings.AddRange(propertyValues);
             }
         }
