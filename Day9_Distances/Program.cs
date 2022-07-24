@@ -42,7 +42,7 @@ int GetBestDistanceForEval(string location, List<string> locationsToVisit, Func<
         }
     }
 
-    return currentBest.HasValue ? currentBest.Value : throw new Exception();
+    return currentBest ?? throw new Exception();
 }
 
 static bool GetDistanceRecord(string? input, out DistanceRecord? value)
