@@ -4,31 +4,31 @@ var AllAunts = new InputProvider<AuntRecord?>("Input.txt", GetAuntRecord).Where(
 
 IEnumerable<AuntRecord> selectedAunts = AllAunts.ToList();
 
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "children", 3));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "cats", 7));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "samoyeds", 2));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "pomeranians", 3));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "akitas", 0));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "vizslas", 0));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "goldfish", 5));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "trees", 3));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "cars", 2));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "perfumes", 1));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "children", 3));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "cats", 7));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "samoyeds", 2));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "pomeranians", 3));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "akitas", 0));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "vizslas", 0));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "goldfish", 5));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "trees", 3));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "cars", 2));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "perfumes", 1));
 
 Console.WriteLine($"Part 1: {selectedAunts.Count()} matches, first: {selectedAunts.First().Name}");
 
 selectedAunts = AllAunts.ToList();
 
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "children", 3));
-selectedAunts = selectedAunts.Where(w => IsAtLeastOrUnknownForProperty(w, "cats", 7));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "samoyeds", 2));
-selectedAunts = selectedAunts.Where(w => IsAtMostOrUnknownForProperty(w, "pomeranians", 3));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "akitas", 0));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "vizslas", 0));
-selectedAunts = selectedAunts.Where(w => IsAtMostOrUnknownForProperty(w, "goldfish", 5));
-selectedAunts = selectedAunts.Where(w => IsAtLeastOrUnknownForProperty(w, "trees", 3));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "cars", 2));
-selectedAunts = selectedAunts.Where(w => IsExactOrUnknownForProperty(w, "perfumes", 1));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "children", 3));
+selectedAunts = selectedAunts.Where(w => IsAtLeastOrUnknown(w, "cats", 7));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "samoyeds", 2));
+selectedAunts = selectedAunts.Where(w => IsAtMostOrUnknown(w, "pomeranians", 3));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "akitas", 0));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "vizslas", 0));
+selectedAunts = selectedAunts.Where(w => IsAtMostOrUnknown(w, "goldfish", 5));
+selectedAunts = selectedAunts.Where(w => IsAtLeastOrUnknown(w, "trees", 3));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "cars", 2));
+selectedAunts = selectedAunts.Where(w => IsExactOrUnknown(w, "perfumes", 1));
 
 Console.WriteLine($"Part 2: {selectedAunts.Count()} matches, first: {selectedAunts.First().Name}");
 
@@ -49,7 +49,7 @@ static bool GetAuntRecord(string? input, out AuntRecord? value)
     return true;
 }
 
-static bool IsExactOrUnknownForProperty(AuntRecord aunt, string propertyName, int propertyValue)
+static bool IsExactOrUnknown(AuntRecord aunt, string propertyName, int propertyValue)
 {
     if (!aunt.Properties.ContainsKey(propertyName))
         return true;
@@ -57,7 +57,7 @@ static bool IsExactOrUnknownForProperty(AuntRecord aunt, string propertyName, in
     return aunt.Properties[propertyName] == propertyValue;
 }
 
-static bool IsAtLeastOrUnknownForProperty(AuntRecord aunt, string propertyName, int propertyValue)
+static bool IsAtLeastOrUnknown(AuntRecord aunt, string propertyName, int propertyValue)
 {
     if (!aunt.Properties.ContainsKey(propertyName))
         return true;
@@ -65,7 +65,7 @@ static bool IsAtLeastOrUnknownForProperty(AuntRecord aunt, string propertyName, 
     return aunt.Properties[propertyName] > propertyValue;
 }
 
-static bool IsAtMostOrUnknownForProperty(AuntRecord aunt, string propertyName, int propertyValue)
+static bool IsAtMostOrUnknown(AuntRecord aunt, string propertyName, int propertyValue)
 {
     if (!aunt.Properties.ContainsKey(propertyName))
         return true;
