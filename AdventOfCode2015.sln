@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day10_LookAndSay", "Day10_L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day11_PasswordGen", "Day11_PasswordGen\Day11_PasswordGen.csproj", "{298BBBF0-0124-43AD-A653-ED0B43749A7A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day12_JSAbacus", "Day12_JSAbacus\Day12_JSAbacus.csproj", "{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{298BBBF0-0124-43AD-A653-ED0B43749A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{298BBBF0-0124-43AD-A653-ED0B43749A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{298BBBF0-0124-43AD-A653-ED0B43749A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16D697A-C70D-4A0E-B8BC-A52374D5A7D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
