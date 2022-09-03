@@ -1,12 +1,6 @@
 ﻿using System.Drawing;
-using System.Text.RegularExpressions;
-
-Regex numRegex = new(@"\d+");
-Regex hexColorRegex = new(@"#[0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z][0-9a-z]");
 
 var wholeStringInput = new InputProvider<string?>("Input.txt", GetString).Where(w => w != null).Cast<string>().ToList();
-
-Console.WriteLine("Part 1");
 
 var cells = InitializeCellsFromInput(wholeStringInput);
 
@@ -16,7 +10,7 @@ Console.WriteLine($"Part 1: {cells.Count(w => w.IsOn)}");
 
 cells = InitializeCellsFromInput(wholeStringInput);
 
-//override corners to be ON
+//Part 2, override corners to be ON
 var lockedCells = new List<Cell>()
 {
     cells.Where(w => w.X == 0 && w.Y == 0).First(),
@@ -125,17 +119,15 @@ class Cell : IWorldObject
         if (this.neighbours == null)
             throw new Exception();
 
-        newState = this.IsOn;
-
         var numberOfNeighboursOn = this.neighbours.Count(w => w.IsOn);
 
         if (this.IsOn)
         {
-            newState = (numberOfNeighboursOn == 2 || numberOfNeighboursOn == 3) ? true : false;
+            newState = numberOfNeighboursOn == 2 || numberOfNeighboursOn == 3;
         }
         else
         {
-            newState = numberOfNeighboursOn == 3 ? true : false;
+            newState = numberOfNeighboursOn == 3;
         }
     }
 
