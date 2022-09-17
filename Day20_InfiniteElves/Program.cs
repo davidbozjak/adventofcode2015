@@ -3,6 +3,7 @@
 var maxGifts10AtHouse = int.MinValue;
 var maxGifts11AtHouse = int.MinValue;
 
+//start at 2 for complete solution, for time execution reasons skip obviously too early houses
 for (int house = 780000; maxGifts10AtHouse < thresholdNumber || maxGifts11AtHouse < thresholdNumber; house++)
 {
     int gifts10AtHouse = 10;
