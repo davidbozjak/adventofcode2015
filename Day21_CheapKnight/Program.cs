@@ -62,8 +62,8 @@ foreach (var weapon in weapons)
     }
 }
 
-Console.WriteLine($"Part 1: {battleLog.Where(w => w.playerWin == true).Select(w => w.cost).Min()}");
-Console.WriteLine($"Part 2: {battleLog.Where(w => w.playerWin == false).Select(w => w.cost).Max()}");
+Console.WriteLine($"Part 1: {battleLog.Where(w => w.playerWin == true).Min(w => w.cost)}");
+Console.WriteLine($"Part 2: {battleLog.Where(w => w.playerWin == false).Max(w => w.cost)}");
 
 static bool SimulateFight(Player player1, Player player2)
 {
