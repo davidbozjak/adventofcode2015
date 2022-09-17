@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day18_GameOfXmas", "Day18_G
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day19_MoleculeCopy", "Day19_MoleculeCopy\Day19_MoleculeCopy.csproj", "{EB18E1FB-8344-4073-BEFA-6D738ABB2DB4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day20_InfiniteElves", "Day20_InfiniteElves\Day20_InfiniteElves.csproj", "{491DDC6D-EDAE-4BB6-8EF1-ABD4C2F4BEF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{EB18E1FB-8344-4073-BEFA-6D738ABB2DB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB18E1FB-8344-4073-BEFA-6D738ABB2DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB18E1FB-8344-4073-BEFA-6D738ABB2DB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491DDC6D-EDAE-4BB6-8EF1-ABD4C2F4BEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491DDC6D-EDAE-4BB6-8EF1-ABD4C2F4BEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491DDC6D-EDAE-4BB6-8EF1-ABD4C2F4BEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491DDC6D-EDAE-4BB6-8EF1-ABD4C2F4BEF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
