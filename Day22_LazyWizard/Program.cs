@@ -6,46 +6,76 @@
     new Spell("Recharge", 229, ApplyRechrageEffect, 5),
 };
 
-var OP_player = new Player(50, 500, 0, 0);
-var OP_monster = new Player(51, 0, 9, 0);
-
+// test example:
 //var OP_player = new Player(10, 250, 0, 0);
 //var OP_monster = new Player(14, 0, 8, 0);
 
-var appliedSpells = SimulateFight(OP_player, OP_monster, Enumerable.Empty<(Spell spell, int ttl)>(), true, Array.Empty<Spell>());
+var OP_player = new Player(50, 500, 0, 0);
+var OP_monster = new Player(51, 0, 9, 0);
 
-foreach (var spell in appliedSpells)
+int currentBest = int.MaxValue;
+bool isHardMode = false;
+
+Console.WriteLine($"Part 1: {SimulateFight(OP_player, OP_monster, Enumerable.Empty<(Spell spell, int ttl)>(), true, Array.Empty<Spell>()).Sum(w => w.ManaCost)}");
+
+isHardMode = true;
+currentBest = int.MaxValue;
+
+Console.WriteLine($"Part 2: {SimulateFight(OP_player, OP_monster, Enumerable.Empty<(Spell spell, int ttl)>(), true, Array.Empty<Spell>()).Sum(w => w.ManaCost)}");
+
+IEnumerable<Spell>? SimulateFight(Player player, Player monster, IEnumerable<(Spell spell, int ttl)> spellsInEffect, bool isPlayerTurn, IEnumerable<Spell> appliedSpells)
 {
-    Console.WriteLine(spell.Name);
-}
+    if (isHardMode && isPlayerTurn)
+    {
+        player = new Player(player.HP - 1, player.Mana, player.AttackDamage, player.Armor);
 
-Console.WriteLine($"Part 1: {appliedSpells.Sum(w => w.ManaCost)}");
+        if (player.HP <= 0)
+            return null;
+    }
 
-IEnumerable<Spell>? SimulateFight(Player player, Player monster, IEnumerable<(Spell spell, int ttl)> spellsInEffect, bool isPlayerTurn, Spell[] appliedSpells)
-{
     var spellsWithUpdatedTTL = new List<(Spell, int ttl)>();
+    var blockedSpells = new HashSet<Spell>();
 
     foreach (var (spell, ttl) in spellsInEffect)
     {
         (player, monster) = spell.Effect(player, monster);
 
-        if (ttl > 1) spellsWithUpdatedTTL.Add((spell, ttl - 1));
+        if (ttl > 1)
+        {
+            spellsWithUpdatedTTL.Add((spell, ttl - 1));
+            blockedSpells.Add(spell);
+        }
     }
 
     if (monster.HP <= 0)
+    {
+        int currentCost = appliedSpells.Sum(w => w.ManaCost);
+
+        if (currentCost < currentBest)
+        {
+            currentBest = currentCost;
+        }
+
         return appliedSpells;
+    }
 
     if (isPlayerTurn)
     {
-        var usableSpells = spells.Where(w => !spellsWithUpdatedTTL.Select(ww => ww.Item1).Contains(w) && player.Mana >= w.ManaCost).ToList();
-
-        if (usableSpells.Count == 0) 
-            return null;
-
         List<IEnumerable<Spell>?> results = new();
 
-        foreach (var spell in usableSpells)
+        int currentCost = appliedSpells.Sum(w => w.ManaCost);
+
+        if (currentCost > currentBest) 
+            return null;
+
+        foreach (var spell in spells)
         {
+            if (blockedSpells.Contains(spell))
+                continue;
+
+            if (spell.ManaCost > player.Mana)
+                continue;
+
             Player newPlayer = player;
             Player newMonster = monster;
             var newSpells = spellsWithUpdatedTTL.ToList();
@@ -61,7 +91,7 @@ IEnumerable<Spell>? SimulateFight(Player player, Player monster, IEnumerable<(Sp
 
             newPlayer = new Player(newPlayer.HP, newPlayer.Mana - spell.ManaCost, 0, 0);
 
-            var newAppliedSpells = appliedSpells.Append(spell).ToArray();
+            var newAppliedSpells = appliedSpells.Append(spell).ToList();
 
             if (newMonster.HP <= 0)
                 results.Add(newAppliedSpells);
@@ -69,7 +99,17 @@ IEnumerable<Spell>? SimulateFight(Player player, Player monster, IEnumerable<(Sp
                 results.Add(SimulateFight(newPlayer, newMonster, newSpells, false, newAppliedSpells));
         }
 
-        return results.OrderBy(w => w?.Sum(w => w.ManaCost) ?? int.MaxValue).First();
+        if (results.Count == 0) 
+            return null;
+
+        var bestFound = results.Select(w => new { Result = w, ManaCost = w?.Sum(w => w.ManaCost) ?? int.MaxValue }).OrderBy(w => w.ManaCost).First();
+
+        if (bestFound.ManaCost < currentBest)
+        {
+            currentBest = bestFound.ManaCost;
+        }
+
+        return bestFound.Result;
     }
     else
     {
