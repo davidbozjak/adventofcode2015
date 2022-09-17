@@ -53,6 +53,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day21_CheapKnight", "Day21_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day22_LazyWizard", "Day22_LazyWizard\Day22_LazyWizard.csproj", "{802357CC-0CDC-4E68-8821-26D363040C94}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day23_Computer", "Day23_Computer\Day23_Computer.csproj", "{5A4D9CA3-2387-4A26-9960-AC73AEF72DA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -159,6 +161,10 @@ Global
 		{802357CC-0CDC-4E68-8821-26D363040C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{802357CC-0CDC-4E68-8821-26D363040C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{802357CC-0CDC-4E68-8821-26D363040C94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4D9CA3-2387-4A26-9960-AC73AEF72DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4D9CA3-2387-4A26-9960-AC73AEF72DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4D9CA3-2387-4A26-9960-AC73AEF72DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4D9CA3-2387-4A26-9960-AC73AEF72DA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
