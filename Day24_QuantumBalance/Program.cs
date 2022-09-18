@@ -1,37 +1,43 @@
 ﻿var packages = new InputProvider<int>("Input.txt", int.TryParse).ToList();
 
-var possibleGroups = GetGroupOfWeights(packages, packages.Sum() / 3);
+Console.WriteLine($"Part 1:");
+GenerateNGroupsAndFindLowQE(packages, 3);
 
-//var balancedGroups = possibleGroups.Where(w => AreBalanced(w.g1, w.g2, w.g3)).ToList();
+Console.WriteLine($"Part 2:");
+GenerateNGroupsAndFindLowQE(packages, 4);
 
-//var sorted = balancedGroups.Select(w => new { G1Count = w.g1.Count, QE = GetQuantumEntanglement(w.g1.GetElements()), G1 = w.g1, G2 = w.g2, G3 = w.g3 })
-//    .OrderBy(w => w.G1Count)
-//    .ThenBy(w => w.QE);
-
-var balancedGroups = possibleGroups.Where(w => AreBalanced(w.g1, w.g2, w.g3));
-
-var minQE = long.MaxValue;
-var minElementCount = int.MaxValue;
-
-foreach (var result in balancedGroups)
+static void GenerateNGroupsAndFindLowQE(IEnumerable<int> elements, int numberOfGroups)
 {
-    var group = result.g1;
+    var possibleGroups = GetGroupOfWeights(elements, elements.Sum() / numberOfGroups, numberOfGroups);
 
-    if (group.Count <= minElementCount)
+    var balancedGroups = possibleGroups.Where(w => AreBalanced(w));
+
+    var minQE = long.MaxValue;
+    var minElementCount = int.MaxValue;
+
+    foreach (var result in balancedGroups)
     {
-        minElementCount = group.Count;
+        var group = result.First();
 
-        var qe = GetQuantumEntanglement(result.g1.GetElements());
-
-        if (qe < minQE)
+        if (group.Count <= minElementCount)
         {
-            Console.WriteLine($"Group with {result.g1.Count} elements with QE of {qe}");
-            minQE = qe;
+            if (group.Count < minElementCount)
+            {
+                minQE = long.MaxValue;
+            }
+
+            minElementCount = group.Count;
+
+            var qe = GetQuantumEntanglement(group.GetElements());
+
+            if (qe < minQE)
+            {
+                Console.WriteLine($"Group with {group.Count} elements with QE of {qe}");
+                minQE = qe;
+            }
         }
     }
 }
-
-//Console.WriteLine($"QE: {sorted.First().QE}");
 
 static long GetQuantumEntanglement(IEnumerable<int> group)
 {
@@ -45,32 +51,34 @@ static long GetQuantumEntanglement(IEnumerable<int> group)
     return qe;
 }
 
-static bool AreBalanced(SummedSeries g1, SummedSeries g2, SummedSeries g3)
+static bool AreBalanced(IEnumerable<SummedSeries> series)
 {
-    return g1.Sum == g2.Sum && g1.Sum == g3.Sum;
+    var first = series.First();
+    return series.All(w => w.Sum == first.Sum);
 }
 
-static IEnumerable<(SummedSeries g1, SummedSeries g2, SummedSeries g3)> GetGroupOfWeights(IEnumerable<int> weights, int max)
+static IEnumerable<List<SummedSeries>> GetGroupOfWeights(IEnumerable<int> weights, int max, int numberOfGroups)
 {
     if (!weights.Any())
     {
-        yield return (new SummedSeries(), new SummedSeries(), new SummedSeries());
+        yield return Enumerable.Range(0, numberOfGroups).Select(w => new SummedSeries()).ToList();
         yield break;
     }
 
     var nextWeight = weights.First();
     var remainingWights = weights.Skip(1).ToList();
 
-    foreach ((SummedSeries g1, SummedSeries g2, SummedSeries g3) in GetGroupOfWeights(remainingWights, max))
+    foreach (var groups in GetGroupOfWeights(remainingWights, max, numberOfGroups))
     {
-        if (g1.Sum + nextWeight <= max)
-            yield return (g1.Add(nextWeight), g2, g3);
+        foreach (var group in groups.OrderByDescending(w => w.Count))
+        {
+            if (group.Sum + nextWeight <= max)
+            {
+                var newGroup = group.Add(nextWeight);
 
-        if (g2.Sum + nextWeight <= max)
-            yield return (g1, g2.Add(nextWeight), g3);
-
-        if (g3.Sum + nextWeight <= max)
-            yield return (g1, g2, g3.Add(nextWeight));
+                yield return groups.Where(w => w != group).Append(newGroup).OrderBy(w => w.Count).ToList();
+            }
+        }
     }
 }
 
